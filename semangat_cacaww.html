@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Caca 🤍</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: radial-gradient(circle at top, #1b2735 0%, #090a0f 60%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+    }
+
+    /* BINTANG */
+    .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: twinkle infinite alternate;
+    }
+
+    @keyframes twinkle {
+        from { opacity: 0.3; }
+        to { opacity: 1; }
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 420px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        z-index: 2;
+        animation: fadeIn 2s ease;
+    }
+
+    h1 {
+        color: #ffb3c6;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #f1f1f1;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .signature {
+        margin-top: 20px;
+        color: #ffb3c6;
+        font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .love {
+        position: absolute;
+        font-size: 24px;
+        animation: fall linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-10vh) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Hai Caca 🤍</h1>
+    <p>
+        Di malam yang sunyi ini,<br>
+        mungkin pikiran kamu lagi capek banget.
+    </p>
+    <p>
+        Tapi kamu nggak sendirian.<br>
+        Ada hati yang peduli, meski cuma lewat layar.
+    </p>
+    <p>
+        Istirahatlah sejenak,<br>
+        besok akan selalu punya kesempatan baru 🌙
+    </p>
+    <div class="signature">
+        — Dari seseorang yang ingin kamu tetap kuat 🤍
+    </div>
+</div>
+
+<script>
+    // BINTANG
+    for (let i = 0; i < 80; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.width = star.style.height = Math.random() * 2 + 1 + "px";
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.top = Math.random() * 100 + "vh";
+        star.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(star);
+    }
+
+    // LOVE & BUNGA JATUH
+    function createLove() {
+        const love = document.createElement("div");
+        love.classList.add("love");
+        love.innerHTML = Math.random() > 0.5 ? "🤍" : "🌸";
+        love.style.left = Math.random() * 100 + "vw";
+        love.style.animationDuration = (4 + Math.random() * 3) + "s";
+        love.style.fontSize = (18 + Math.random() * 20) + "px";
+        document.body.appendChild(love);
+
+        setTimeout(() => {
+            love.remove();
+        }, 7000);
+    }
+
+    setInterval(createLove, 350);
+</script>
+
+</body>
+</html>
